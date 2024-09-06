@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Dinosaur Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
+        .right-answer {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "C",
+                q2: "A",
+                q3: "B",
+                q4: "D",
+                q5: "A",
+                q6: "C",
+                q7: "D",
+                q8: "B",
+                q9: "A",
+                q10: "C"
+            };
+
+            let score = 0;
+
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                const selected = document.querySelector(input[name="${question}"]:checked);
+                
+                // Remove previous feedback
+                const labels = document.querySelectorAll(label[for^="${question}"]);
+                labels.forEach(label => {
+                    label.classList.remove("correct", "incorrect", "right-answer");
+                });
+
+                if (selected) {
+                    const label = document.querySelector(label[for="${selected.id}"]);
+                    
+                    if (selected.value === correctAnswer) {
+                        label.classList.add("correct");
+                        score++;
+                    } else {
+                        label.classList.add("incorrect");
+                        // Highlight the correct answer
+                        const correctLabel = document.querySelector(label[for="${question}${correctAnswer}"]);
+                        correctLabel.classList.add("right-answer");
+                    }
+                } else {
+                    // If no option is selected, show the correct answer
+                    const correctLabel = document.querySelector(label[for="${question}${correctAnswer}"]);
+                    correctLabel.classList.add("right-answer");
+                }
+            }
+
+            alert(You scored ${score}/10);
+        }
+    </script>
+</head>
+<body>
+    <h1>Top 10 Dinosaur Quiz</h1>
+    <form id="quizForm">
+        <ol>
+            <li>
+                <p>Which dinosaur is known for its large frill and three facial horns?</p>
+                <input type="radio" id="q1A" name="q1" value="A">
+                <label for="q1A">A) Velociraptor</label><br>
+                <input type="radio" id="q1B" name="q1" value="B">
+                <label for="q1B">B) Stegosaurus</label><br>
+                <input type="radio" id="q1C" name="q1" value="C">
+                <label for="q1C">C) Triceratops</label><br>
+                <input type="radio" id="q1D" name="q1" value="D">
+                <label for="q1D">D) Diplodocus</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur is often referred to as the "king of the dinosaurs"?</p>
+                <input type="radio" id="q2A" name="q2" value="A">
+                <label for="q2A">A) Tyrannosaurus Rex</label><br>
+                <input type="radio" id="q2B" name="q2" value="B">
+                <label for="q2B">B) Brachiosaurus</label><br>
+                <input type="radio" id="q2C" name="q2" value="C">
+                <label for="q2C">C) Velociraptor</label><br>
+                <input type="radio" id="q2D" name="q2" value="D">
+                <label for="q2D">D) Spinosaurus</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur had a long neck and tail, and is known as one of the largest land animals ever?</p>
+                <input type="radio" id="q3A" name="q3" value="A">
+                <label for="q3A">A) Stegosaurus</label><br>
+                <input type="radio" id="q3B" name="q3" value="B">
+                <label for="q3B">B) Brachiosaurus</label><br>
+                <input type="radio" id="q3C" name="q3" value="C">
+                <label for="q3C">C) Triceratops</label><br>
+                <input type="radio" id="q3D" name="q3" value="D">
+                <label for="q3D">D) Velociraptor</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur had large, flat plates along its back and a spiked tail?</p>
+                <input type="radio" id="q4A" name="q4" value="A">
+                <label for="q4A">A) Brachiosaurus</label><br>
+                <input type="radio" id="q4B" name="q4" value="B">
+                <label for="q4B">B) Velociraptor</label><br>
+                <input type="radio" id="q4C" name="q4" value="C">
+                <label for="q4C">C) Allosaurus</label><br>
+                <input type="radio" id="q4D" name="q4" value="D">
+                <label for="q4D">D) Stegosaurus</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur is known for having a sail-like structure on its back?</p>
+                <input type="radio" id="q5A" name="q5" value="A">
+                <label for="q5A">A) Spinosaurus</label><br>
+                <input type="radio" id="q5B" name="q5" value="B">
+                <label for="q5B">B) Triceratops</label><br>
+                <input type="radio" id="q5C" name="q5" value="C">
+                <label for="q5C">C) Brachiosaurus</label><br>
+                <input type="radio" id="q5D" name="q5" value="D">
+                <label for="q5D">D) Ankylosaurus</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur is famous for its speed and intelligence, and appeared in the movie "Jurassic Park"?</p>
+                <input type="radio" id="q6A" name="q6" value="A">
+                <label for="q6A">A) Allosaurus</label><br>
+                <input type="radio" id="q6B" name="q6" value="B">
+                <label for="q6B">B) Triceratops</label><br>
+                <input type="radio" id="q6C" name="q6" value="C">
+                <label for="q6C">C) Velociraptor</label><br>
+                <input type="radio" id="q6D" name="q6" value="D">
+                <label for="q6D">D) Brachiosaurus</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur had an armoured body and a clubbed tail?</p>
+                <input type="radio" id="q7A" name="q7" value="A">
+                <label for="q7A">A) Triceratops</label><br>
+                <input type="radio" id="q7B" name="q7" value="B">
+                <label for="q7B">B) Stegosaurus</label><br>
+                <input type="radio" id="q7C" name="q7" value="C">
+                <label for="q7C">C) Velociraptor</label><br>
+                <input type="radio" id="q7D" name="q7" value="D">
+                <label for="q7D">D) Ankylosaurus</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur is considered the largest carnivorous dinosaur?</p>
+                <input type="radio" id="q8A" name="q8" value="A">
+                <label for="q8A">A) Tyrannosaurus Rex</label><br>
+                <input type="radio" id="q8B" name="q8" value="B">
+                <label for="q8B">B) Spinosaurus</label><br>
+                <input type="radio" id="q8C" name="q8" value="C">
+                <label for="q8C">C) Allosaurus</label><br>
+                <input type="radio" id="q8D" name="q8" value="D">
+                <label for="q8D">D) Velociraptor</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur is famous for having feathers?</p>
+                <input type="radio" id="q9A" name="q9" value="A">
+                <label for="q9A">A) Velociraptor</label><br>
+                <input type="radio" id="q9B" name="q9" value="B">
+                <label for="q9B">B) Stegosaurus</label><br>
+                <input type="radio" id="q9C" name="q9" value="C">
+                <label for="q9C">C) Triceratops</label><br>
+                <input type="radio" id="q9D" name="q9" value="D">
+                <label for="q9D">D) Brachiosaurus</label><br>
+            </li>
+            <li>
+                <p>Which dinosaur had a long neck and is known to be one of the largest herbivores?</p>
+                <input type="radio" id="q10A" name="q10" value="A">
+                <label for="q10A">A) Triceratops</label><br>
+                <input type="radio" id="q10B" name="q10" value="B">
+                <label for="q10B">B) Velociraptor</label><br>
+                <input type="radio" id="q10C" name="q10" value="C">
+                <label for="q10C">C) Brachiosaurus</label><br>
+                <input type="radio" id="q10D" name="q10" value="D">
+                <label for="q10D">D) Ankylosaurus</label><br>
+            </li>
+        </ol>
+        <button type="button" onclick="checkAnswers()">Submit Answers</button>
+    </form>
+</body>
+</html>

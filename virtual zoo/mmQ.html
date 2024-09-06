@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mammoth Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
+        .right-answer {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "A",
+                q2: "C",
+                q3: "D",
+                q4: "B",
+                q5: "A",
+                q6: "B",
+                q7: "C",
+                q8: "D",
+                q9: "C",
+                q10: "B"
+            };
+
+            let score = 0;
+
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                const selected = document.querySelector(input[name="${question}"]:checked);
+                
+                // Remove previous feedback
+                const labels = document.querySelectorAll(label[for^="${question}"]);
+                labels.forEach(label => {
+                    label.classList.remove("correct", "incorrect", "right-answer");
+                });
+
+                if (selected) {
+                    const label = document.querySelector(label[for="${selected.id}"]);
+                    
+                    if (selected.value === correctAnswer) {
+                        label.classList.add("correct");
+                        score++;
+                    } else {
+                        label.classList.add("incorrect");
+                        // Highlight the correct answer
+                        const correctLabel = document.querySelector(label[for="${question}${correctAnswer}"]);
+                        correctLabel.classList.add("right-answer");
+                    }
+                } else {
+                    // If no option is selected, show the correct answer
+                    const correctLabel = document.querySelector(label[for="${question}${correctAnswer}"]);
+                    correctLabel.classList.add("right-answer");
+                }
+            }
+
+            alert(You scored ${score}/10);
+        }
+    </script>
+</head>
+<body>
+    <h1>Mammoth Quiz</h1>
+    <form id="quizForm">
+        <ol>
+            <li>
+                <p>Which of the following species is most closely related to the Woolly Mammoth?</p>
+                <input type="radio" id="q1A" name="q1" value="A">
+                <label for="q1A">A) Asian Elephant</label><br>
+                <input type="radio" id="q1B" name="q1" value="B">
+                <label for="q1B">B) African Elephant</label><br>
+                <input type="radio" id="q1C" name="q1" value="C">
+                <label for="q1C">C) Mastodon</label><br>
+                <input type="radio" id="q1D" name="q1" value="D">
+                <label for="q1D">D) Saber-toothed Cat</label><br>
+            </li>
+            <li>
+                <p>During which era did the Woolly Mammoth primarily live?</p>
+                <input type="radio" id="q2A" name="q2" value="A">
+                <label for="q2A">A) Jurassic</label><br>
+                <input type="radio" id="q2B" name="q2" value="B">
+                <label for="q2B">B) Triassic</label><br>
+                <input type="radio" id="q2C" name="q2" value="C">
+                <label for="q2C">C) Pleistocene</label><br>
+                <input type="radio" id="q2D" name="q2" value="D">
+                <label for="q2D">D) Permian</label><br>
+            </li>
+            <li>
+                <p>How tall could Woolly Mammoths grow?</p>
+                <input type="radio" id="q3A" name="q3" value="A">
+                <label for="q3A">A) 5 feet</label><br>
+                <input type="radio" id="q3B" name="q3" value="B">
+                <label for="q3B">B) 7 feet</label><br>
+                <input type="radio" id="q3C" name="q3" value="C">
+                <label for="q3C">C) 9 feet</label><br>
+                <input type="radio" id="q3D" name="q3" value="D">
+                <label for="q3D">D) 12 feet</label><br>
+            </li>
+            <li>
+                <p>Where have the majority of Woolly Mammoth fossils been found?</p>
+                <input type="radio" id="q4A" name="q4" value="A">
+                <label for="q4A">A) South America</label><br>
+                <input type="radio" id="q4B" name="q4" value="B">
+                <label for="q4B">B) Siberia</label><br>
+                <input type="radio" id="q4C" name="q4" value="C">
+                <label for="q4C">C) Australia</label><br>
+                <input type="radio" id="q4D" name="q4" value="D">
+                <label for="q4D">D) Africa</label><br>
+            </li>
+            <li>
+                <p>What did the diet of a Woolly Mammoth consist of?</p>
+                <input type="radio" id="q5A" name="q5" value="A">
+                <label for="q5A">A) Grass, shrubs, and other vegetation</label><br>
+                <input type="radio" id="q5B" name="q5" value="B">
+                <label for="q5B">B) Small mammals</label><br>
+                <input type="radio" id="q5C" name="q5" value="C">
+                <label for="q5C">C) Fish and insects</label><br>
+                <input type="radio" id="q5D" name="q5" value="D">
+                <label for="q5D">D) Large mammals</label><br>
+            </li>
+            <li>
+                <p>What was a distinguishing feature of the Woolly Mammoth?</p>
+                <input type="radio" id="q6A" name="q6" value="A">
+                <label for="q6A">A) Long tail</label><br>
+                <input type="radio" id="q6B" name="q6" value="B">
+                <label for="q6B">B) Curved tusks</label><br>
+                <input type="radio" id="q6C" name="q6" value="C">
+                <label for="q6C">C) Sharp claws</label><br>
+                <input type="radio" id="q6D" name="q6" value="D">
+                <label for="q6D">D) Large wings</label><br>
+            </li>
+            <li>
+                <p>Which of these is a close relative of the Woolly Mammoth?</p>
+                <input type="radio" id="q7A" name="q7" value="A">
+                <label for="q7A">A) Giant Ground Sloth</label><br>
+                <input type="radio" id="q7B" name="q7" value="B">
+                <label for="q7B">B) Saber-toothed Cat</label><br>
+                <input type="radio" id="q7C" name="q7" value="C">
+                <label for="q7C">C) Mastodon</label><br>
+                <input type="radio" id="q7D" name="q7" value="D">
+                <label for="q7D">D) Megalodon</label><br>
+            </li>
+            <li>
+                <p>What was the primary cause of the Woolly Mammoth’s extinction?</p>
+                <input type="radio" id="q8A" name="q8" value="A">
+                <label for="q8A">A) Volcanic eruption</label><br>
+                <input type="radio" id="q8B" name="q8" value="B">
+                <label for="q8B">B) Asteroid impact</label><br>
+                <input type="radio" id="q8C" name="q8" value="C">
+                <label for="q8C">C) Disease outbreak</label><br>
+                <input type="radio" id="q8D" name="q8" value="D">
+                <label for="q8D">D) Climate change and human hunting</label><br>
+            </li>
+            <li>
+                <p>What is the name of the last known population of Woolly Mammoths that survived until 1650 BC?</p>
+                <input type="radio" id="q9A" name="q9" value="A">
+                <label for="q9A">A) Wrangel Island Mammoths</label><br>
+                <input type="radio" id="q9B" name="q9" value="B">
+                <label for="q9B">B) Taimyr Mammoths</label><br>
+                <input type="radio" id="q9C" name="q9" value="C">
+                <label for="q9C">C) Woolly Steppe Mammoths</label><br>
+                <input type="radio" id="q9D" name="q9" value="D">
+                <label for="q9D">D) Siberian Mammoths</label><br>
+            </li>
+            <li>
+                <p>Which location is famous for having preserved frozen Woolly Mammoth remains?</p>
+                <input type="radio" id="q10A" name="q10" value="A">
+                <label for="q10A">A) Antarctica</label><br>
+                <input type="radio" id="q10B" name="q10" value="B">
+                <label for="q10B">B) Siberia</label><br>
+                <input type="radio" id="q10C" name="q10" value="C">
+                <label for="q10C">C) Africa</label><br>
+                <input type="radio" id="q10D" name="q10" value="D">
+                <label for="q10D">D) Greenland</label><br>
+            </li>
+        </ol>
+        <button type="button" onclick="checkAnswers()">Submit Answers</button>
+    </form>
+</body>
+</html
